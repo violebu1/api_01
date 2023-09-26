@@ -1,0 +1,61 @@
+//GET
+### Obtencion de todos los productos
+GET http://localhost:1234/productos/
+### Obtener el precio de un producto por su ID
+GET http://localhost:1234/productos/precio/2
+### Obtener el nombre de un producto por su ID
+GET http://localhost:1234/productos/nombre/2
+### Obtención de un producto específico
+GET http://localhost:1234/productos/3
+###Obtener el listado completo de usuarios
+GET http://localhost:1234/usuarios/
+###Obtener los datos de un usuario en particular
+GET http://localhost:1234/usuarios/5
+### Obtener el teléfono de un usuario por su ID
+GET http://localhost:1234/usuarios/telefono/9
+### Obtener el nombre de un usuario por su ID
+GET http://localhost:1234/usuarios/nombre/1
+### Obtener el total del stock actual de productos
+GET http://localhost:1234/productos/stock-total
+
+//POST
+### Agregado de un producto nuevo, el body lleva el json con el objeto
+POST http://localhost:1234/productos
+Content-Type: application/json
+{
+    "id": 11,
+    "nombre": "Mixer multiuso ACME",
+    "tipo": "Electrodoméstico de cocina",
+    "precio": 150.15
+}
+###Incluir nuevo usuario
+POST http://localhost:1234/usuarios/
+Content-Type: application/json
+{
+  "nombre": "Clara Clarines",
+  "telefono": "+1 323-456-7890"
+}
+
+//PATCH
+###Modificar un usuario
+PATCH http://localhost:1234/usuarios/4
+Content-Type: application/json
+{
+  "nombre": "Cara Clarinetes"
+}
+### Actualización de un producto, el body lleva solo el atributo a modificar
+PATCH http://localhost:1234/productos/10
+Content-Type: application/json
+{
+    "nombre": "Mixer multiuso ACME PODEROSO"
+}
+
+//DELETE
+### Borrado de un producto
+DELETE http://localhost:1234/productos/8
+###Borrar usuario
+DELETE http://localhost:1234/usuarios/7
+
+
+
+
