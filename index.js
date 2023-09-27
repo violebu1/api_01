@@ -16,6 +16,24 @@ app.get('/', (req, res) => {
 
 
 //GET
+
+// 10 STOCK TOTAL DE PRODUCTOS Y SU VALOR EN SUMATORIA
+app.get("/productos/total", (req, res) => {
+  try {
+    let productos = datos.productos;
+    let productosStock = productos.length;
+    let precioTotal = productos.reduce((total, producto) => {
+      return total + producto.precio;
+    }, 0);
+    precioTotal = parseFloat(precioTotal.toFixed(2));
+    res.status(200).json({
+      productosStock,
+      precioTotal,
+    });
+  } catch (error) {
+    res.status(204).json({ message: error });
+  }
+});
 //LISTADO PRODUCTOS
 app.get('/productos/', (req, res) =>{
     try {
@@ -27,7 +45,7 @@ app.get('/productos/', (req, res) =>{
         res.status(204).json({"message": error})
     }
 })
-//6producto por precio
+// 6 PRODUCTO POR PRECIO
 app.get('/productos/precio/:id', (req, res) => {
   try {
       let productoId = parseInt(req.params.id)
@@ -43,7 +61,7 @@ app.get('/productos/precio/:id', (req, res) => {
       res.status(204).json({"message": error})
     }
 })
-// 7nombre de un producto por su ID//
+// 7 NOMBRE DE PRODUCTO POR ID
 app.get('/productos/nombre/:id', (req, res) => {
   try {
       let productoId = parseInt(req.params.id)
@@ -71,7 +89,7 @@ app.get('/productos/:id', (req, res) => {
       res.status(204).json({"message": error})
   }
 })
-//1listado completo usuarios//
+//1 LISTA COMPLETA DE USUARIOS
 app.get('/usuarios/', (req, res) =>{
   try {
       let allUsuarios = datos.usuarios
@@ -82,7 +100,7 @@ app.get('/usuarios/', (req, res) =>{
       res.status(204).json({"message": error})
   }
 })
-//2datos de un usuario x id//
+//2 USUARIOS POR ID
 app.get('/usuarios/:id', (req, res) => {
   try {
       let usuarioId = parseInt(req.params.id)
@@ -94,7 +112,7 @@ app.get('/usuarios/:id', (req, res) => {
       res.status(204).json({"message": error})
   }
 })
-//  teléfono de un usuario por su ID
+// 8 TELEFONO DE UN USUARIO POR ID
 app.get('/usuarios/telefono/:id', (req, res) => {
     try {
         let usuarioId = parseInt(req.params.id)
@@ -110,7 +128,7 @@ app.get('/usuarios/telefono/:id', (req, res) => {
         res.status(204).json({"message": error})
       }
 })
-//  nombre de un usuario por su ID
+// 9 NOMBRE DE UN USUARIO POR ID
 app.get('/usuarios/nombre/:id', (req, res) => {
     try {
         let usuarioId = parseInt(req.params.id)
@@ -126,11 +144,6 @@ app.get('/usuarios/nombre/:id', (req, res) => {
         res.status(204).json({"message": error})
       }
 })
-// total del stock actual de productos
-app.get('/productos/stock-total', (req, res) => {
-  const totalStock = productos.reduce((total, prod) => total + prod.stock, 0);
-  res.json({ totalStock });
-});
 
 
 
@@ -157,7 +170,7 @@ app.post('/productos', (req, res) => {
         res.status(204).json({"message": "error"})
     }
 })
-//3nuevo usuario//
+// 3 AGREGAR NUEVO USUARIO
 app.post('/usuarios', (req, res) => {
   try {
       let bodyTemp = ''
@@ -215,7 +228,7 @@ app.patch('/productos/:id', (req, res) => {
         res.status(200).send('Producto actualizado')
     })
 })
-//4modificar usuario//
+// 4 MODIFICAR USUARIO
 app.patch('/usuarios/:id', (req, res) => {
   const idUsuarioAEditar = parseInt(req.params.id);
   const usuarioAActualizar = datos.usuarios.find((usuario) => usuario.id === idUsuarioAEditar);
@@ -274,7 +287,7 @@ app.delete('/productos/:id', (req, res) => {
         res.status(204).json({"message": "error"})
     }
 })
-//5borrar usuario//
+// 5 BORRAR UN USUARIO
 app.delete('/usuarios/:id', (req, res) => {
   const idUsuarioABorrar = parseInt(req.params.id);
   const usuarioABorrar = datos.usuarios.find((usuario) => usuario.id === idUsuarioABorrar);
