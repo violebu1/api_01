@@ -2,7 +2,7 @@
 ### 10 Obtener el total del stock actual de productos
 GET http://localhost:1234/productos/total
 ### Obtencion de todos los productos
-GET http://localhost:1234/productos/
+GET http://localhost:1234/productos
 ### 6 Obtener el precio de un producto por su ID
 GET http://localhost:1234/productos/precio/2
 ### 7 Obtener el nombre de un producto por su ID
@@ -12,9 +12,9 @@ GET http://localhost:1234/productos/3
 ### 1 Obtener el listado completo de usuarios
 GET http://localhost:1234/usuarios/
 ### 2 Obtener los datos de un usuario por ID
-GET http://localhost:1234/usuarios/5
+GET http://localhost:1234/usuarios/3
 ### 8 Obtener el teléfono de un usuario por su ID
-GET http://localhost:1234/usuarios/telefono/9
+GET http://localhost:1234/usuarios/telefono/3
 ### 9 Obtener el nombre de un usuario por su ID
 GET http://localhost:1234/usuarios/nombre/1
 
@@ -25,17 +25,17 @@ POST http://localhost:1234/productos
 Content-Type: application/json
 
 {
-    "id": 11,
     "nombre": "Mixer multiuso ACME",
-    "tipo": "Electrodoméstico de cocina",
     "precio": 150.15
 }
+
 ### 3 Incluir nuevo usuario
 POST http://localhost:1234/usuarios/
 Content-Type: application/json
 
 {
   "nombre": "Clara Clarines",
+  "email": "claroqueno@siosi.com",
   "telefono": "+1 323-456-7890"
 }
 
@@ -57,9 +57,9 @@ Content-Type: application/json
 
 //DELETE
 ### Borrado de un producto
-DELETE http://localhost:1234/productos/8
+DELETE http://localhost:1234/productos/15
 ### 5 Borrar usuario
-DELETE http://localhost:1234/usuarios/7
+DELETE http://localhost:1234/usuarios/6
 
 
 
