@@ -35,6 +35,7 @@ Content-Type: application/json
 
 {
   "nombre": "Clara Clarines",
+  "edad":28,
   "email": "claroqueno@siosi.com",
   "telefono": "+1 323-456-7890"
 }
@@ -57,9 +58,9 @@ Content-Type: application/json
 
 //DELETE
 ### Borrado de un producto
-DELETE http://localhost:1234/productos/15
+DELETE http://localhost:1234/productos/3
 ### 5 Borrar usuario
-DELETE http://localhost:1234/usuarios/6
+DELETE http://localhost:1234/usuarios/4
 
 
 

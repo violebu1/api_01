@@ -156,48 +156,44 @@ app.get('/usuarios/nombre/:id', async (req, res) => {
 
 //POST
 //AGREGAR PRODUCTO
-// app.post('/productos', async (req, res) => {
-//     let bodyTemp = ''
-
-//     req.on('data', (chunk) => {
-//         bodyTemp += chunk.toString()
-//     })
+app.post('/productos', (req, res) => {
     
-//     req.on('end', async () => {
-//         const data = JSON.parse(bodyTemp)
-//         req.body = data
-//         //datos.productos.push(req.body)
-//         const productoAGuardar = new Producto(req.body)
-//         await productoAGuardar.save()
-//     })
-//     try {
-//         const nuevoProducto = await Producto.create(req.body); 
-//         res.status(201).json({"message": "Producto creado con éxito", "producto": nuevoProducto});
-//     } catch (error) {
-//         res.status(500).json({"message": "Error"});
-//     }
-// });
+    try {
+        let bodyTemp=''
+        req.on('data',(chunk)=> {
+            bodyTemp+=chunk.toString()
+        }) 
+        req.on('end', async()=>{
+            const data=JSON.parse(bodyTemp)
+            req.body=data
+            const productoAGuardar=new Producto(req.body)
+            await productoAGuardar.save()
+        })
+        res.status(201).json({"message": "Producto ingresado con éxito"});
+    } catch (error) {
+        res.status(204).json({"message": "Error"});
+    }
+});
+
 // 3 AGREGAR NUEVO USUARIO
-
-// app.post('/usuarios', async (req, res) => {
-//     try {
-//         // Obtener los datos del nuevo usuario del cuerpo de la solicitud
-//         const { nombre, email, telefono } = req.body;
-
-//         // Crear un nuevo usuario en la base de datos utilizando Sequelize
-//         const nuevoUsuario = await Usuario.create({
-//             nombre,
-//             email,
-//             telefono
-//         });
-
-//         // Respuesta de éxito
-//         res.status(201).json({"message": "Usuario creado con éxito", "usuario": nuevoUsuario});
-//     } catch (error) {
-//         // Si hay algún error durante la creación del usuario, responde con un código de estado 500 (Internal Server Error)
-//         res.status(500).json({"message": "Error interno del servidor"});
-//     }
-// });
+app.post('/usuarios', (req, res) => {
+    
+    try {
+        let bodyTemp=''
+        req.on('data',(chunk)=> {
+            bodyTemp+=chunk.toString()
+        }) 
+        req.on('end', async()=>{
+            const data=JSON.parse(bodyTemp)
+            req.body=data
+            const usuarioAGuardar=new Usuario(req.body)
+            await usuarioAGuardar.save()
+        })
+        res.status(201).json({"message": "Usuario creado con éxito"});
+    } catch (error) {
+        res.status(204).json({"message": "Error"});
+    }
+});
 
 
 //PATCH
