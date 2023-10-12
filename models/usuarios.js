@@ -8,7 +8,10 @@ const Usuario=db.define('usuario', {
         nombre: { type: DataTypes.STRING},
         edad : {type: DataTypes.INTEGER},
         email: { type: DataTypes.STRING},
-        telefono: { type: DataTypes.STRING}
+        telefono: { type: DataTypes.STRING},
+        usuario : { type:DataTypes.STRING},
+        password: { type:DataTypes.STRING},
+        nivel:{type:DataTypes.INTEGER}
     },
     {
         tableName: 'usuarios',

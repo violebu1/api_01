@@ -23,21 +23,23 @@ GET http://localhost:1234/usuarios/nombre/1
 ### Agregado de un producto nuevo, el body lleva el json con el objeto
 POST http://localhost:1234/productos
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFyaW8iOiJwYWJsb2FsZWphbmRyb2UiLCJuaXZlbCI6MSwiZXhwIjoxNjk2NTQ2OTA4ODcyLCJpYXQiOjE2OTY1NDY4NDh9.aFKLkTEtex16pRGj4vT1Dde76KyNEXCmxWwabS0uPvo
 
 {
-    "nombre": "Mixer multiuso ACME",
-    "precio": 150.15
+    "nombre": "Caja negra de jugar",
+    "precio": 325.00
 }
 
 ### 3 Incluir nuevo usuario
 POST http://localhost:1234/usuarios/
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFyaW8iOiJwYWJsb2FsZWphbmRyb2UiLCJuaXZlbCI6MSwiZXhwIjoxNjk2NTQ2OTA4ODcyLCJpYXQiOjE2OTY1NDY4NDh9.aFKLkTEtex16pRGj4vT1Dde76KyNEXCmxWwabS0uPvo
 
 {
-  "nombre": "Clara Clarines",
+  "nombre": "Diego Hojoredondo",
   "edad":28,
-  "email": "claroqueno@siosi.com",
-  "telefono": "+1 323-456-7890"
+  "email": "michimiau@siosi.com",
+  "telefono": "+1 323-489-7890"
 }
 
 //PATCH
@@ -61,7 +63,14 @@ Content-Type: application/json
 DELETE http://localhost:1234/productos/3
 ### 5 Borrar usuario
 DELETE http://localhost:1234/usuarios/4
+### Request desde el formulario de logueo en el frontend
+POST http://localhost:1234/auth
+Content-Type: application/json
 
+    {
+        "usuario": "clarapocaluz",
+        "password": "clarapass"
+    }
 
 
 
