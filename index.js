@@ -101,7 +101,7 @@ app.post('/auth', async (req, res) => {
         sub,
         usuario,
         nivel,
-        exp: Date.now() + (60 * 1000)
+        exp: Date.now() + (240 * 1000)
     }, process.env.SECRET_KEY)
 
     res.status(200).json({ accessToken: token })

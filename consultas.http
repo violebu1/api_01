@@ -8,7 +8,7 @@ GET http://localhost:1234/productos/precio/2
 ### 7 Obtener el nombre de un producto por su ID
 GET http://localhost:1234/productos/nombre/2
 ### Obtención de un producto específico
-GET http://localhost:1234/productos/3
+GET http://localhost:1234/productos/2
 ### 1 Obtener el listado completo de usuarios
 GET http://localhost:1234/usuarios/
 ### 2 Obtener los datos de un usuario por ID
@@ -33,13 +33,16 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFya
 ### 3 Incluir nuevo usuario
 POST http://localhost:1234/usuarios/
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFyaW8iOiJwYWJsb2FsZWphbmRyb2UiLCJuaXZlbCI6MSwiZXhwIjoxNjk2NTQ2OTA4ODcyLCJpYXQiOjE2OTY1NDY4NDh9.aFKLkTEtex16pRGj4vT1Dde76KyNEXCmxWwabS0uPvo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzdWFyaW8iOiJqdWFucGVyZXoiLCJuaXZlbCI6MSwiZXhwIjoxNjk3MTI5NTQ2MjMzLCJpYXQiOjE2OTcxMjkzMDZ9.f93e70Os8gIqwaqKaSKq1F09C1NQ-rEI3hWk8nq3qKQ
 
 {
   "nombre": "Diego Hojoredondo",
   "edad":28,
   "email": "michimiau@siosi.com",
-  "telefono": "+1 323-489-7890"
+  "telefono": "+1 323-489-7890",
+  "usuario":"diegohojoredondo",
+  "password":"diegopass",
+  "nivel": 1
 }
 
 //PATCH
@@ -62,14 +65,18 @@ Content-Type: application/json
 ### Borrado de un producto
 DELETE http://localhost:1234/productos/3
 ### 5 Borrar usuario
-DELETE http://localhost:1234/usuarios/4
+DELETE http://localhost:1234/usuarios/20
+
+
+
+
 ### Request desde el formulario de logueo en el frontend
 POST http://localhost:1234/auth
 Content-Type: application/json
 
     {
-        "usuario": "clarapocaluz",
-        "password": "clarapass"
+        "usuario": "juanperez",
+        "password": "juanpass"
     }
 
 

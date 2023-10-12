@@ -1,17 +1,17 @@
 import { Sequelize } from 'sequelize';
-
+import dotenv from "dotenv";
 
 //creo el objeto
-
-
+dotenv.config();
+//instancia sequelize
 const db = new Sequelize(
-    'ktxatsjk', //base de datos
-    'ktxatsjk', //usuario
-    'FFZ36V44uZMWzlPiTnFkgPCyLaaDcgkH', //password
+    process.env.DB_NAME, //base de datos
+    process.env.DB_USERNAME, //usuario
+    process.env.DB_PASSWORD, //password
     {
-        host: 'silly.db.elephantsql.com',
-        dialect : 'postgres',
+        host: process.env.DB_HOSTNAME,
+        dialect : process.env.DB_DIALECT,
         logging : true
     })
 
-export default db
+export default db;
